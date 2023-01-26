@@ -6,7 +6,7 @@ export default {
     return {
       store,
       searchMovie: '',
-      apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=all',
+      apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=a',
       movies: []
       
     }
@@ -38,7 +38,15 @@ export default {
       <div>
           {{ movie.title }}        
       </div>
-      
+      <div>
+          {{ movie.original_title }}        
+      </div>
+      <div>
+          {{ movie.original_language }}        
+      </div>
+      <div>
+          {{ movie.vote_average }}        
+      </div>
     </li>
   </ul>
 </template>
