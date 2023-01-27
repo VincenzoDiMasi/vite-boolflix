@@ -35,6 +35,7 @@ export default {
       cleanInput(){
         if (this.searchMovie === ''){
           this.movies = []
+          this.series = []
         }
       }
   },
