@@ -1,6 +1,7 @@
 <script>
 import {store} from '../store'
 export default {
+    name: 'AppHeader',
     data () {
         return {
             store,
@@ -23,8 +24,8 @@ export default {
             </h1>
         </div>
         <div class="input-group flex-nowrap w-25">
-            <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">
-            <button @click="onTypeSearch" class="btn btn-danger">Cerca</button>
+            <input @keyup="$emit('clean-input', searchProduct)" @keyup.enter="$emit('product-search', searchProduct)" v-model.trim="searchProduct" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">       
+            <button @click="$emit('product-search', searchProduct)" class="btn btn-danger">Cerca</button>
         </div>
     </header>
 

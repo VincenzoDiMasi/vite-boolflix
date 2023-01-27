@@ -1,9 +1,11 @@
 <script>
 import {store} from '../store'
 export default {
+    name: 'AppMain',
     data () {
         return {
             store,
+            
             
         }
     }  
@@ -38,7 +40,7 @@ export default {
     <div class="series">
       <h1>Series</h1>
       <ul>
-        <li v-for="serie in series">
+        <li v-for="serie in store.series">
           <figure>
             <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
           </figure>

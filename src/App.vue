@@ -8,7 +8,7 @@ export default {
   data (){
     return {
       store,
-      apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=a',
+      apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=',
       
     }
   },
@@ -17,13 +17,13 @@ export default {
         axios.get(url)
         .then((res) => {
         store.movies = res.data.results;
-        store.series = []
+        
       });
       },
       fetchSeries(url) {
         axios.get(url)
         .then((res) => {
-        this.series = res.data.results;
+        store.series = res.data.results;
       });
       },
       onProductSearch(searchProduct){
