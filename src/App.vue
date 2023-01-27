@@ -59,6 +59,9 @@ export default {
       <h1>Movies</h1>
       <ul> 
         <li v-for="movie in movies">
+          <figure>
+            <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
+          </figure>
           <div>
               {{ movie.title }}        
           </div>
@@ -79,6 +82,9 @@ export default {
       <h1>Series</h1>
       <ul>
         <li v-for="serie in series">
+          <figure>
+            <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
+          </figure>
           <div>
               {{ serie.name }}        
           </div>
