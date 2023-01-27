@@ -27,9 +27,9 @@ export default {
       });
       },
       onProductSearch(searchProduct){
-        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchProduct}`
+        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${searchProduct}`
         this.fetchMovie(movieUri);
-        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchProduct}`
+        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${searchProduct}`
         this.fetchSeries(seriesUri)
       },
       cleanInput(searchProduct){
