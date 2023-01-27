@@ -53,7 +53,7 @@ export default {
           {{ movie.original_title }}        
       </div>
       <div>
-        <img class="img-fluid" :src="`/src/assets/img/${movie.original_language}.png`">       
+        <img class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`">       
       </div>
       <div>
           {{ movie.vote_average }}        
@@ -63,13 +63,8 @@ export default {
 </template>
 
 <style lang="scss">
-li {
-  div {
-    img {
-    height: 20px;
-  }
-  }
-  
+.flag {
+  height: 18px;
 }
 
 </style>
