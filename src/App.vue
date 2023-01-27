@@ -1,14 +1,13 @@
 <script >
 import axios from 'axios'
 import {store} from './store'
+import AppHeader from './components/AppHeader.vue'
 export default {
+  components : {AppHeader},
   data (){
     return {
       store,
-      searchProduct: '',
       apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=a',
-      movies: [],
-      series: []
       
     }
   },
@@ -16,8 +15,8 @@ export default {
       fetchMovie(url) {
         axios.get(url)
         .then((res) => {
-        this.movies = res.data.results;
-        this.series = []
+        store.movies = res.data.results;
+        store.series = []
       });
       },
       fetchSeries(url) {
@@ -26,18 +25,18 @@ export default {
         this.series = res.data.results;
       });
       },
-      onTypeSearch(){
-        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchMovie}`
+      onProductSearch(searchProduct){
+        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchProduct}`
         this.fetchMovie(movieUri);
-        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchMovie}`
+        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchProduct}`
         this.fetchSeries(seriesUri)
       },
-      cleanInput(){
-        if (this.searchMovie === ''){
-          this.movies = []
-          this.series = []
+      cleanInput(searchProduct){
+        if (searchProduct === ''){
+          store.movies = []
+          store.series = []
         }
-      }
+      },
   },
 }
 //   created() {
@@ -47,18 +46,12 @@ export default {
 </script>
 
 <template>
-  <h1 class="m-4">
-    BOOLFLIX
-  </h1>
-  <div class="input-group flex-nowrap w-25">
-    <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">
-    <button @click="onTypeSearch" class="btn btn-danger">Cerca</button>
-  </div>
-
+  
+  <app-header @product-search="onProductSearch" @clean-input="cleanInput"></app-header>
   <div class="movies">
       <h1>Movies</h1>
       <ul> 
-        <li v-for="movie in movies">
+        <li v-for="movie in store.movies">
           <figure>
             <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
           </figure>
