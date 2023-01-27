@@ -18,19 +18,30 @@ export default {
         this.movies = res.data.results;
       });
       },
+      onTypeSearch(){
+        const apiUri = `https://api.themoviedb.org/3/search/movie?api_key=00ab33acaa22d58af366e888c3e4fe95&query=${this.searchMovie}`
+        this.fetchMovie(apiUri)
+      },
+      cleanInput(){
+        if (this.searchMovie === ''){
+          this.movies = []
+        }
+      }
   },
-  created() {
-    this.fetchMovie(this.apiUri);
-  }
 }
+//   created() {
+//     this.fetchMovie(this.apiUri);
+//   }
+// }
 </script>
 
 <template>
   <h1 class="m-4">
-    AAAAA
+    BOOLFLIX
   </h1>
   <div class="input-group flex-nowrap w-25">
-    <input v-model="searchMovie" type="text" class="form-control" placeholder="Cerca film" aria-label="Username" aria-describedby="addon-wrapping">
+    <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">
+    <button @click="onTypeSearch" class="btn btn-success">Cerca</button>
   </div>
 
   <ul>
