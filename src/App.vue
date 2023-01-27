@@ -64,7 +64,9 @@ export default {
           <div>
               {{ movie.original_title }}        
           </div>
-          <img class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`" :alt="movie.original_language">  
+          <!-- <img class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`" :alt="movie.original_language">   -->
+          <img v-if="movie.original_language === 'it' || movie.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`" :alt="movie.original_language">
+          <div v-else>{{ movie.original_language }}</div>
           <div>
               {{ movie.vote_average }}        
           </div>
@@ -82,7 +84,8 @@ export default {
           <div>
               {{ serie.original_name }}        
           </div>
-          <img class="img-fluid flag" :src="`/src/assets/img/${serie.original_language}.png`" :alt="serie.original_language">  
+          <img v-if="serie.original_language === 'it' || serie.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${serie.original_language}.png`" :alt="serie.original_language">
+          <div v-else>{{ serie.original_language }}</div> 
           <div>
               {{ serie.vote_average }}        
           </div>
