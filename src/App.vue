@@ -41,7 +41,7 @@ export default {
   </h1>
   <div class="input-group flex-nowrap w-25">
     <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">
-    <button @click="onTypeSearch" class="btn btn-success">Cerca</button>
+    <button @click="onTypeSearch" class="btn btn-danger">Cerca</button>
   </div>
 
   <ul>
@@ -53,7 +53,7 @@ export default {
           {{ movie.original_title }}        
       </div>
       <div>
-          {{ movie.original_language }}        
+        <img class="img-fluid" :src="`/src/assets/img/${movie.original_language}.png`">       
       </div>
       <div>
           {{ movie.vote_average }}        
@@ -62,6 +62,14 @@ export default {
   </ul>
 </template>
 
-<style >
+<style lang="scss">
+li {
+  div {
+    img {
+    height: 20px;
+  }
+  }
+  
+}
 
 </style>
