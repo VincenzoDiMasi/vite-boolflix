@@ -26,7 +26,7 @@
     <div>
        {{ product.original_title || product.original_name }}        
     </div>
-    <img v-if="original_language === 'it' || original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`" :alt="serie.original_language">
+    <img v-if="product.original_language === 'it' || product.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`" :alt="product.original_language">
     <div v-else>{{ product.original_language }}</div> 
 
     <div>    
