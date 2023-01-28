@@ -17,12 +17,15 @@ export default {
 
 <template>
     <header class="d-flex justify-content-between align-items-center px-4">
-        <div class="d-flex">
-            <h1 class="text-danger">B</h1>
-            <h1 class="">
-                OOLFLIX
-            </h1>
-        </div>
+        <a id="logo-title" href="#">
+             <div class="d-flex">
+                <h1 class="text-danger">B</h1>
+                <h1 class="">
+                    OOLFLIX
+                </h1>
+            </div>
+        </a>
+       
         <div class="input-group flex-nowrap w-25">
             <input @keyup="$emit('clean-input', searchProduct)" @keyup.enter="$emit('product-search', searchProduct)" v-model.trim="searchProduct" type="text" class="form-control" placeholder="Cerca" aria-label="Username" aria-describedby="addon-wrapping">       
             <button @click="$emit('product-search', searchProduct)" class="btn btn-danger">Cerca</button>
@@ -35,9 +38,15 @@ export default {
     header {
         height: 80px;
         background-color: black;
-        
-        h1{
+
+        #logo-title {
+            text-decoration: none;
+
+            h1{
             color: white;
         }
+        }
+        
+        
     }
 </style>

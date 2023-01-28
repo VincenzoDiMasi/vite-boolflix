@@ -19,7 +19,7 @@ export default {
       <ul> 
         <li v-for="movie in store.movies">
           <figure>
-            <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
+            <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
           </figure>
           <div>
               {{ movie.title }}        
@@ -31,7 +31,18 @@ export default {
           <img v-if="movie.original_language === 'it' || movie.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`" :alt="movie.original_language">
           <div v-else>{{ movie.original_language }}</div>
           <div>
-            {{ Math.ceil(movie.vote_average / 2) }}        
+            <div class="empty-star">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+
+              <div class="full-star">
+                <i v-for="n in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i>
+              </div>
+
+            </div>        
           </div>
         </li>
       </ul>
@@ -39,10 +50,10 @@ export default {
 
     <div class="series">
       <h1>Series</h1>
-      <ul>
+      <ul >
         <li v-for="serie in store.series">
           <figure>
-            <img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
+            <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="">
           </figure>
           <div>
               {{ serie.name }}        
@@ -52,9 +63,17 @@ export default {
           </div>
           <img v-if="serie.original_language === 'it' || serie.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${serie.original_language}.png`" :alt="serie.original_language">
           <div v-else>{{ serie.original_language }}</div> 
-          <div>
-            {{ Math.ceil(serie.vote_average / 2) }}         
-          </div>
+          <div class="empty-star">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+
+              <div class="full-star">
+                <i v-for="n in Math.ceil(serie.vote_average / 2)" class="fa-solid fa-star"></i>
+              </div>    
+            </div>
         </li>
       </ul>
     </div>
@@ -65,5 +84,20 @@ export default {
    .flag {
   height: 18px;
 }
+
+.poster {
+    height: 300px;
+    cursor: pointer;
+}
+
+.empty-star {
+    position: relative;
+  }
+  .full-star {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
 
 </style>
