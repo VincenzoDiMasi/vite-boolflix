@@ -20,13 +20,18 @@ export default {
         <div class="container d-flex align-items-center">
             <section v-if="store.movies.length || store.series.length" class="py-3">
                 <div class="movies">
-                    <h1 class="text-white">Movies</h1>
+                    <h1 class="text-white mb-2">Movies</h1>
+                    <div class="row row-cols-5 ">
                         <product-card v-for="movie in store.movies" :product="movie" key=""></product-card>
+                    </div>
                 </div>
 
                 <div class="series">
-                    <h1 class="text-white">Series</h1>
+                    <h1 class="text-white mt-5 mb-2">Series</h1>
+                    <div class="row row-cols-5">
                         <product-card v-for="serie in store.series"  :product="serie"></product-card>
+                    </div>
+                        
                 </div>
             </section>
 
