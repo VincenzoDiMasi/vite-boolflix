@@ -16,37 +16,36 @@ export default {
 </script>
 
 <template>
-   <div class="movies">
-      <h1>Movies</h1>
-      <ProductCard v-for="movie in store.movies" :product="movie" key=""></ProductCard>
-    </div>
+   <main>
+        <div class="container d-flex align-items-center">
+            <section v-if="store.movies.length || store.series.length" class="py-3">
+                <div class="movies">
+                    <h1 class="text-white">Movies</h1>
+                        <product-card v-for="movie in store.movies" :product="movie" key=""></product-card>
+                </div>
 
-    <div class="series">
-      <h1>Series</h1>
-      <ProductCard v-for="serie in store.series" :product="serie" ></ProductCard>
-    </div>
+                <div class="series">
+                    <h1 class="text-white">Series</h1>
+                        <product-card v-for="serie in store.series"  :product="serie"></product-card>
+                </div>
+            </section>
+
+            <h1 v-else class="text-white py-3 ">
+                Cosa vuoi guardare?
+            </h1>
+
+        </div>
+      
+
+    </main>
 
 </template>
 
 <style lang="scss" scoped>
-   .flag {
-  height: 18px;
-}
-
-.poster {
-    height: 300px;
-    cursor: pointer;
-}
-
-.empty-star {
-    position: relative;
-  }
-  .full-star {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #dc3545;
-  }
+   main {
+      background-color: grey;
+      min-height: calc(100vh - 80px);
+    }
 
 
 </style>
