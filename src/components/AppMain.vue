@@ -70,8 +70,8 @@ export default {
               <i class="fa-regular fa-star"></i>
               <i class="fa-regular fa-star"></i>
 
-              <div class="full-star">
-                <i v-for="n in Math.ceil(serie.vote_average / 2)" class="fa-solid fa-star"></i>
+              <div class="full-star ">
+                <i v-for="n in Math.ceil(serie.vote_average / 2)" class="fa-solid fa-star "></i>
               </div>    
             </div>
         </li>
@@ -97,6 +97,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+    color: #dc3545;
   }
 
 
