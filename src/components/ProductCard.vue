@@ -56,7 +56,7 @@
 }
 
 .poster {
-    height: 300px;
+    height: 350px;
     cursor: pointer;
 }
 

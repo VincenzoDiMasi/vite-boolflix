@@ -17,7 +17,7 @@ export default {
 
 <template>
     <header class="d-flex justify-content-between align-items-center px-4">
-        <a id="logo-title" href="#">
+        <a id="logo-title" href="" @click="cleanInput(searchProduct)">
              <div class="d-flex">
                 <h1 class="text-danger">B</h1>
                 <h1 class="">
