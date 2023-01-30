@@ -36,16 +36,17 @@
 
             <div v-if="hover" class="content-hvr h-100 w-100 d-flex flex-column  p-2">
                 <div>
-                    <h4>
+                    <h4 class="text-danger">
                         {{ product.title || product.name }}        
                     </h4>
                     <h6>
-                      Original title: {{ product.original_title || product.original_name }}     
+                      Original title: "{{ product.original_title || product.original_name }}"    
                     </h6>
                 </div>
                 <div >
+                    Original language:
                     <img v-if="product.original_language === 'it' || product.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`" :alt="product.original_language">
-                    <div class="fw-bold" v-else>{{ product.original_language.toUpperCase() }}</div>
+                    <span class="fw-bold" v-else>{{ product.original_language.toUpperCase() }}</span>
                 </div>
                 
                 <div>
