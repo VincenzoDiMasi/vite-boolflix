@@ -36,7 +36,7 @@
 
             <div v-if="hover" class="content-hvr h-100 w-100 d-flex flex-column  p-2">
                 <div>
-                    <h4 class="text-danger">
+                    <h4 class="text-danger fw-bold">
                         {{ product.title || product.name }}        
                     </h4>
                     <h6>
