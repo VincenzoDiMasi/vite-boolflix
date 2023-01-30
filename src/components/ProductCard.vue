@@ -24,7 +24,9 @@
     <div class="col mb-3">
        
         <figure  @mouseover="hover = true" @mouseleave="hover = false">
-            <img class="poster" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
+            <img v-if="product.poster_path" class="poster" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
+            <img v-else src="https://www.altavod.com/assets/images/poster-placeholder.png" class="poster" alt="placeholder image">
+
 
             <div v-if="hover" class="content-hvr h-100 w-100 d-flex flex-column  p-2">
                 <div>
