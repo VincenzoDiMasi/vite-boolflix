@@ -80,7 +80,7 @@ figure {
 
     .poster {
     height: 350px;
-    width: 233px;
+    width: 240px;
     cursor: pointer;
     }
 
@@ -93,7 +93,7 @@ figure {
                 background-color: rgba(0, 0, 0, 0.8);
                 overflow-y: auto;
                 overflow-x: hidden;
-                width: 235px;
+                // width: 235px;
                 // min-height: 350px;
 
                 p {
