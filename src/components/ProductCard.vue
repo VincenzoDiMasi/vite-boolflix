@@ -16,6 +16,12 @@
             return {
                 hover: false
             }
+        },
+        computed: {
+            vote(){
+                return Math.ceil(this.product.vote_average / 2)
+
+            }
         }
     }
 </script>
@@ -44,16 +50,8 @@
                 
                 <div>
                     
-                    <div class="empty-star">
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-
-                        <div class="full-star">
-                            <i v-for="n in Math.ceil(product.vote_average / 2)" class="fa-solid fa-star"></i>
-                        </div>     
+                    <div>
+                        <i v-for="star in 5" :class="star <= vote ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
                     </div>
 
                     <div>
@@ -104,15 +102,9 @@ figure {
     }
 }
 
-.empty-star {
-    position: relative;
-  }
-  .full-star {
-    position: absolute;
-    top: 0;
-    left: 0;
+.fa-solid {
     color: #dc3545;
-  }
+}
 
   
 </style>
