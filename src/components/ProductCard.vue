@@ -92,14 +92,15 @@ figure {
                 background-color: rgba(0, 0, 0, 0.8);
                 overflow-y: auto;
                 overflow-x: hidden;
+                max-width: 235px;
 
                 p {
                     font-size: 12px;
                 }
 
-                *{
-                padding: 5px 0;
-            }
+                 *{
+                 padding: 5px 0;
+             }
     }
 }
 
