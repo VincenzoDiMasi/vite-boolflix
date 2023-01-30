@@ -45,7 +45,7 @@
                 </div>
                 <div >
                     <img v-if="product.original_language === 'it' || product.original_language === 'en'" class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`" :alt="product.original_language">
-                    <div v-else>{{ product.original_language }}</div>
+                    <div class="fw-bold" v-else>{{ product.original_language.toUpperCase() }}</div>
                 </div>
                 
                 <div>
